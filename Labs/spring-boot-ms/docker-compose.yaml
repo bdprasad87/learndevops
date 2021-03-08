@@ -1,0 +1,32 @@
+version: '1.1'
+
+services:
+  currency-exchange:
+    image: currency-exchange
+    ports:
+      - "8082:8082"
+    networks:
+      - currency-network
+    depends_on:
+      - eureka-naming-server
+    environment:
+      EUREKA.CLIENT.SERVICEURL.DEFAULTZONE: http://eureka-naming-server:8761/eureka
+
+  currency-conversion:
+    image: currency-conversion
+    ports:
+      - "8085:8085"
+    networks:
+      - currency-network
+    depends_on:
+      - eureka-naming-server
+
+  eureka-naming-server:
+    image: eureka
+    ports:
+      - "8761:8761"
+    networks:
+      - currency-network
+
+networks:
+  currency-network
