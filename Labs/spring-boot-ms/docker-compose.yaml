@@ -1,4 +1,4 @@
-version: '1.1'
+version: '2.0'
 
 services:
   currency-exchange:
@@ -10,7 +10,7 @@ services:
     depends_on:
       - eureka-naming-server
     environment:
-      EUREKA.CLIENT.SERVICEURL.DEFAULTZONE: http://eureka-naming-server:8761/eureka
+      eureka.client.serviceUrl.defaultZone: http://eureka-naming-server:8761/eureka
 
   currency-conversion:
     image: currency-conversion
@@ -21,7 +21,7 @@ services:
     depends_on:
       - eureka-naming-server
     environment:
-      EUREKA.CLIENT.SERVICEURL.DEFAULTZONE: http://eureka-naming-server:8761/eureka
+      eureka.client.serviceUrl.defaultZone: http://eureka-naming-server:8761/eureka
 
   eureka-naming-server:
     image: eureka
