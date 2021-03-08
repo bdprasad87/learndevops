@@ -20,6 +20,8 @@ services:
       - currency-network
     depends_on:
       - eureka-naming-server
+    environment:
+      EUREKA.CLIENT.SERVICEURL.DEFAULTZONE: http://eureka-naming-server:8761/eureka
 
   eureka-naming-server:
     image: eureka
@@ -29,4 +31,4 @@ services:
       - currency-network
 
 networks:
-  currency-network
+  currency-network:
