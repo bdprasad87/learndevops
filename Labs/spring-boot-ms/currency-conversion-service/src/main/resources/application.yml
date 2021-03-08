@@ -1,0 +1,29 @@
+server:
+  port: 8085
+
+spring:
+  application:
+    name: currency-conversion
+
+resilience4j.circuitbreaker:
+  configs:
+    default:
+      slidingWindowSize: 100
+      permittedNumberOfCallsInHalfOpenState: 2
+      waitDurationInOpenState: 10000
+      failureRateThreshold: 5
+      eventConsumerBufferSize: 10
+      registerHealthIndicator: true
+  instances:
+    currency-conversion-feign:
+      baseConfig: default
+      waitDurationInOpenState: 5000
+    currency-conversion:
+      baseConfig: default
+
+eureka:
+#  client:
+#    service-url:
+#      default-zone: http://localhost:8761/eureka
+  instance:
+    prefer-ip-address: true
