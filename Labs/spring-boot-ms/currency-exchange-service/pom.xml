@@ -10,7 +10,6 @@
     </parent>
     <groupId>com.in28minutes.microservices</groupId>
     <artifactId>currency-exchange</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
     <name>currency-exchange</name>
     <description>Demo project for Spring Boot</description>
 
