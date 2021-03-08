@@ -23,6 +23,17 @@ services:
     environment:
       eureka.client.serviceUrl.defaultZone: http://eureka-naming-server:8761/eureka
 
+  api-gateway:
+    image: api-gateway
+    ports:
+      - "8765:8765"
+    networks:
+      - currency-network
+    depends_on:
+      - eureka-naming-server
+    environment:
+      eureka.client.serviceUrl.defaultZone: http://eureka-naming-server:8761/eureka
+
   eureka-naming-server:
     image: eureka
     ports:
