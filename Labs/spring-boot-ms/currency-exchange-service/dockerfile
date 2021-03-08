@@ -1,0 +1,9 @@
+#spring boot application docker file
+FROM java:8-jdk-alpine
+#RUN apt-get -y  update
+#RUN apt-get -y install maven wget
+#RUN apt-get -y install openjdk-8-jdk wget
+#RUN mvn clean install
+ARG JAR_FILE=target/currency-exchange-2.4.1.jar
+COPY ${JAR_FILE} currency-exchange-2.4.1.jar
+ENTRYPOINT ["java","-jar","currency-exchange-2.4.1.jar"]

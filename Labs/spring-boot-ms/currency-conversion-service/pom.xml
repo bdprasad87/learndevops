@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.in28minutes.microservices</groupId>
     <artifactId>currency-conversion</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+
     <name>currency-conversion</name>
     <description>Demo project for Spring Boot</description>
 
@@ -109,6 +109,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
         </plugins>
+       <finalName>currency-conversion</finalName>
     </build>
 
     <repositories>

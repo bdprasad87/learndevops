@@ -1,0 +1,11 @@
+FROM java:8-jdk-alpine
+
+RUN mvn clean install
+
+COPY ./target/naming-server.jar /usr/app/
+
+WORKDIR /usr/app
+
+RUN sh -c 'touch naming-server.jar'
+
+ENTRYPOINT ["java","-jar","naming-server.jar"]
